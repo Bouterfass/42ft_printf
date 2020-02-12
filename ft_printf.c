@@ -1,6 +1,28 @@
 #include "libftprintf.h"
 
-int ft_printf(int a)
+/*
+*
+* va_start (nb, arg_ptr) nb prend le nombre de flags trouves dans s
+*
+*/
+
+
+int ft_printf(const char *s, ...)
 {
-    return (a);
+    va_list arg_ptr;
+    int args;
+    int nbflag;
+   // char *new_s;
+    
+    va_start(arg_ptr, s);
+    args = 0;
+    nbflag = 0;
+    s = NULL;
+    while (args < 3)
+    {
+        write(1, va_arg(arg_ptr, void*), 5);
+        args++;
+    }
+    va_end(arg_ptr);
+    return (0);
 }

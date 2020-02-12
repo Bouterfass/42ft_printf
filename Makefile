@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCLIBFTPRINTF = ft_printf.c main.c
+SRCS = ft_printf.c ft_printf_utils.c main.c
 
 CC = gcc
 
@@ -18,24 +18,28 @@ NAME = libftprintf.a
 
 CFLAGS = -Wall -Wextra -Werror
 
-OBJPRINT = $(SRCLIBFTPRINTF:.c=.o)
-OBJLIB = $(SRCLIBFT:.c=.o)
+OBJS = $(SRCS:.c=.o)
+
+INC = -I libft/libft.h
+
+LIB = -L libft -lft
 
 $(NAME): $(OBJ) ${OBJPRINT}
 		make -C libft
-		$(CC) $(CFLAGS) -I./libft -c $(SRCLIBFT)
-		$(CC) $(CFLAGS) -I. -c $(SRCLIBFTPRINTF) -o ${NAME}
-		ar rc $(NAME) $(OBJLIB) ${OBJPRINT}
+		$(CC) $(CFLAGS) -c $(SRCS) $(INC)
+		$(CC) $(CFLAGS) $(INC) $(OBJS) $(LIB) -o $(NAME)
+		ar rc $(NAME) $(OBJS)
 		ranlib $(NAME)
 
 all: $(NAME)
 
 clean:
-	rm -rf $(OBJLIB)
-	rm -rf $(OBJPRINT)
+	rm -rf $(OBJS)
+	make -C libft clean
 
 fclean:	clean
 	rm -rf $(NAME)
+	make -C libft fclean
 
 re: fclean all
 
