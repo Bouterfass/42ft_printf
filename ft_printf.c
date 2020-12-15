@@ -11,12 +11,10 @@ int ft_printf(const char *s, ...)
 {
     va_list arg_ptr;
     int args;
-    int nbflag;
    // char *new_s;
     
     va_start(arg_ptr, s);
     args = 0;
-    nbflag = 0;
     s = NULL;
     while (args < 3)
     {

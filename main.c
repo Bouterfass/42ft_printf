@@ -18,12 +18,13 @@ int main(int ac, char **av)
     printf("\n");
     for (int i = 0; i < count_format(av[1]); i++)
     {
-        printf(" %s\t", get_format(av[1], pos[i])); 
+        printf("%s\t", get_format(av[1], pos[i])); 
     }
        printf("\n");
     for (int i = 0; i < count_format(av[1]); i++)
     {
-        printf(" %d\t", check_format(get_format(av[1], pos[i]))); 
+        printf("%d\t", check_format(get_format(av[1], pos[i]))); 
     }
+    printf("\n");
     return (0);
 }

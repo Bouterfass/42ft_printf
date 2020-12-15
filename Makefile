@@ -20,7 +20,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 OBJS = $(SRCS:.c=.o)
 
-INC = -I libft/libft.h
+INC = -I libft/
 
 LIB = -L libft -lft
 

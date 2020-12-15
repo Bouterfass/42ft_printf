@@ -3,6 +3,7 @@
 int main()
 {
     char a[2] = "vd";
-    printf("%10s       \n", a);
+    int n = 30;
+    printf("%      d10d", n);
     return (0);
 }
