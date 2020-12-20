@@ -9,18 +9,17 @@
 
 int ft_printf(const char *s, ...)
 {
-    va_list arg_ptr;
-    int args;
-   // char *new_s;
+    int i;
+    va_list argptr;
     
-    va_start(arg_ptr, s);
-    args = 0;
-    s = NULL;
-    while (args < 3)
-    {
-        write(1, va_arg(arg_ptr, void*), 5);
-        args++;
-    }
-    va_end(arg_ptr);
+    i = 0;
+    va_start(argptr, s);
+
+    if (!s)
+        return (-1);
+
+    ft_read_string(s, argptr);
+
+    va_end(argptr);
     return (0);
 }
