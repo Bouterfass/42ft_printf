@@ -5,6 +5,7 @@
 
 int main()
 {
-    ft_printf("Salut %ss%s!\n", "youcef", "Bouterfass");
+    float num = 26;
+    ft_printf("Salut %s, tu as %f ans!\n", "youcef", num);
     return (0);
 }

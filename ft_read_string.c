@@ -17,7 +17,12 @@ void ft_read_string(const char *s, va_list argptr)
             if (ft_is_valid_type(s[j]))
             {
                 if (s[j] == 'd'){
-                    ft_putstr(va_arg(argptr, int));
+                    ft_putstr(ft_itoa(va_arg(argptr, int)));
+                    i++;
+                }
+                // split "."
+                if (s[j] == 'f'){
+                    ft_putstr(ft_itoa(va_arg(argptr, double)));
                     i++;
                 }
                 if (s[j] == 's') {
