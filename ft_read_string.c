@@ -20,9 +20,8 @@ void ft_read_string(const char *s, va_list argptr)
                     ft_putstr(ft_itoa(va_arg(argptr, int)));
                     i++;
                 }
-                // split "."
-                if (s[j] == 'f'){
-                    ft_putstr(ft_itoa(va_arg(argptr, double)));
+                if (s[j] == 'c'){
+                    ft_putchar(va_arg(argptr, int));
                     i++;
                 }
                 if (s[j] == 's') {
