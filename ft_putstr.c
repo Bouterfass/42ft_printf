@@ -1,6 +1,6 @@
 #include <unistd.h>
 
-void ft_putstr(char *s)
+int ft_putstr(char *s)
 {
     int i = 0;
     while (s[i])

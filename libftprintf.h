@@ -11,9 +11,9 @@ typedef struct ft_specifications {
     char*  type;
 } ft_specs;
 
-void        ft_putchar(char c);
-void        ft_putstr(char *s);
-void        ft_read_string(const char *s, va_list list);
+int        ft_putchar(char c);
+int        ft_putstr(char *s);
+int        ft_read_spec(const char *s, int i, va_list *list);
 int         ft_is_valid_type(char c);
 ft_specs    ft_init_spec(void);
 int         ft_printf(const char *s, ...);

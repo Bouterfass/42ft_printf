@@ -8,18 +8,29 @@
 
 
 int ft_printf(const char *s, ...)
-{
+{    
     int i;
-    va_list argptr;
-    
+    int res; 
+
     i = 0;
+    res = 0;
+    va_list argptr;   
     va_start(argptr, s);
 
     if (!s)
         return (-1);
-
-    ft_read_string(s, argptr);
-
+    while (s[i])
+    {
+        if (s[i] == '%' && s[i])
+        {
+            res += ft_read_spec(s, i + 1, &argptr);
+            i++;
+        }
+        else {
+            res += ft_putchar(s[i]);
+        }
+        i++;
+    }
     va_end(argptr);
-    return (0);
+    return (res);
 }
