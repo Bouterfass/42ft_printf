@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = ft_printf.c ft_putchar.c main.c
+SRCS = *.c
 
 CC = gcc
 
@@ -27,7 +27,7 @@ LIB = -L libft -lft
 $(NAME): $(OBJ) ${OBJPRINT}
 		make -C libft
 		$(CC) $(CFLAGS) -c $(SRCS) $(INC)
-		$(CC) $(CFLAGS) $(INC) $(OBJS) $(LIB) -o $(NAME)
+		$(CC) $(CFLAGS) $(INC) $(OBJS) $(LIB) -o ft_printf
 		ar rc $(NAME) $(OBJS)
 		ranlib $(NAME)
 

@@ -1,4 +1,4 @@
-#include <stdio.h>
+//#include <stdio.h>
 
 
 /* 
@@ -11,10 +11,9 @@
                 - '0' : 
 */
 
-
+/*
 int main()
 {
-/* %d */
   //printf("%5d\n", 4); // affiche "    4"
   //printf("%-5d\n", 4); // affiche "4    "
   //printf("% 5d\n", 4); // affiche "    4"
@@ -28,14 +27,14 @@ int main()
   //printf("%0*d\n", 5, 3); // affiche "00003" 
   //printf("%d\n", 3.123); // affiche "-159371752" (WTF)
 
-/* %s */
+
   //printf("%s\n", "a"); // affiche "a"
   //printf("%5s\n", "a"); // affiche "    a"
   //printf("%05s\n", "a"); // affiche "    a"
   //printf("%-5s\n", "a"); // affiche "a    "
 
 
-/* %f */
+
     //printf("%.f\n", 4.0); // affiche "4"
     //printf("%.f\n", 4); // affiche "4" ~
     //printf("%.3f\n", 4.0); // affiche "4.000"
@@ -48,3 +47,4 @@ int main()
     //printf("%10.3f\n", 3.12); // affiche "     3.120"
     //printf("%010.3f\n", 3.12); // affiche "000003.120"
 }
+*/

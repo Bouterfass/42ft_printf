@@ -6,9 +6,7 @@ void ft_read_string(const char *s, va_list argptr)
 
     int i = 0;
     int j = 0;
-    ft_specs spe;
-
-    spe = ft_init_spec();
+    
     while (s[i])
     {
         j = i + 1;
