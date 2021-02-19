@@ -3,7 +3,6 @@
 
 void ft_read_string(const char *s, va_list argptr)
 {
-
     int i = 0;
     int j = 0;
     
@@ -25,6 +24,9 @@ void ft_read_string(const char *s, va_list argptr)
                 if (s[j] == 's') {
                     ft_putstr(va_arg(argptr, char*));
                     i++;
+                }
+                if (s[j] == 'x' || s[j] == 'X') {
+                    ft_putstr(from_int_to_hex(va_arg(argptr, int)));
                 }
             }
         }

@@ -1,18 +1,4 @@
-/*#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include "./libft/libft.h"
-
-
-    - % [indicateurs] [largeur] [.précision] [taille] type
-
-    - [indicateurs] (optionnel) contient : 
-                - '-' : Aligner à gauche le résultat selon la largeur du champs donnée.
-                - '+' : Utiliser un signe (+ ou -) pour préfixer la valeur de sortie s'il s'agit d'un 
-                        type signé.
-                - '0' : 
-
-
+#include "libftprintf.h"
 
 char *reverse_string(const char *s)
 {
@@ -185,22 +171,3 @@ char *from_int_to_hex(int n)
   }
   return ((char *)reverse_string(result));
 }
-
-
-int main()
-{
-
-  int x = 100000000;
-
-  //printf("x en binaire : %s\n", from_int_to_bin(x));
-  //printf("x en binaire inversé : %s\n", invert_bin(from_int_to_bin(x)));
-  //printf("x en binaire inversé + 1 : %s\n", inverted_plus_one(invert_bin(from_int_to_bin(x))));
-  //printf("NEG HEX : %s\n", neg_hex(reverse_string(inverted_plus_one(invert_bin(from_int_to_bin(x))))));
-
-  printf("valeur de %%x en hexa: %x\n", x);
-  printf("valeur de %%x en hexa (ma fonction): %s\n", from_int_to_hex(x));
-  //printf("valeur de %%p en adresse : %p\n", x);
- // printf("valeur de %%i en binaire : %i\n", 12);
-
-  return (0);
-}*/

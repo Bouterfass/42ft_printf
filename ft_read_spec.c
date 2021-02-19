@@ -12,6 +12,8 @@ if (s[i] == 's')
     res += ft_putstr(va_arg(*argptr, char*));
 if (s[i] == 'd')
     res += ft_putstr(ft_itoa(va_arg(*argptr, int)));
+if (s[i] == 'x' || s[i] == 'X')
+    res += ft_putstr(from_int_to_hex(va_arg(*argptr, int)));
  return (res);
 }
 
