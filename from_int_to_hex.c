@@ -1,4 +1,19 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 #include "libftprintf.h"
+/*
+
+    - % [indicateurs] [largeur] [.précision] [taille] type
+
+    - [indicateurs] (optionnel) contient : 
+                - '-' : Aligner à gauche le résultat selon la largeur du champs donnée.
+                - '+' : Utiliser un signe (+ ou -) pour préfixer la valeur de sortie s'il s'agit d'un 
+                        type signé.
+                - '0' : 
+  https://github.com/Himak1/ft_printf
+  https://github.com/tcynthia/ft_printf/blob/master/receiver/rec_unsi.c
+*/
 
 char *reverse_string(const char *s)
 {
@@ -20,7 +35,7 @@ char *reverse_string(const char *s)
 
 char *from_int_to_bin(int n)
 {
-  char *res = (char *)malloc(sizeof(char) * 32);
+  char *res = (char *)malloc(sizeof(char) * 33);
   int i = 0;
   char neg;
 
@@ -44,8 +59,9 @@ char *from_int_to_bin(int n)
   while (i < 32) 
     res[i++] = '0';
   
-  res[31] = neg;
-  res[32] = '\0';
+  res[32] = neg;
+  res[33] = '\0';
+ // printf("s bin %s \n", res);
   return ((char *)reverse_string(res));
 }
 
@@ -67,7 +83,7 @@ char *invert_bin(const char* s)
     i++;
   }
   inverted[i] = '\0';
-
+ // printf("s inverted %s \n", inverted);
   return ((char *)inverted);
 }
 
@@ -93,7 +109,7 @@ char *inverted_plus_one(char *inverted)
   }
 
   result[j] = '1';
- 
+
   while(i >= 0)
   {
     j++; 
@@ -101,6 +117,7 @@ char *inverted_plus_one(char *inverted)
     result[j] = inverted[i];
   }
   result[j] = '\0';
+ // printf("s inverted plus one %s \n", result);
   return ((char *)reverse_string(result));
 }
 
@@ -113,7 +130,7 @@ char *neg_hex(const char * s)
     int tmp;
     int stock;
     char ref[17] = "0123456789abcdef";
-
+   // printf("s inverted plus one %s \n", s);
     res = (char *)malloc( sizeof(char) * (ft_strlen(s) / 4) + 1);
     i = 0;
     j = 0;
@@ -145,7 +162,7 @@ char *neg_hex(const char * s)
 char *from_int_to_hex(int n)
 {
   char ref[17] = "0123456789abcdef";
-  char *result = (char *)malloc(sizeof(char) * 32);
+  char *result = (char *)malloc(sizeof(char) * 33);
   int i = 0;
 
   if (n == 0)
@@ -171,3 +188,4 @@ char *from_int_to_hex(int n)
   }
   return ((char *)reverse_string(result));
 }
+

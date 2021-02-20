@@ -1,8 +1,8 @@
 /*#include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "./libft/libft.h"
-
+#include "./libft/libft.h"*/
+/*
 
     - % [indicateurs] [largeur] [.précision] [taille] type
 
@@ -11,9 +11,9 @@
                 - '+' : Utiliser un signe (+ ou -) pour préfixer la valeur de sortie s'il s'agit d'un 
                         type signé.
                 - '0' : 
-
-
-
+  https://github.com/Himak1/ft_printf
+*/
+/*
 char *reverse_string(const char *s)
 {
   char *reversed = (char *)malloc(sizeof(char) * ft_strlen(s));
@@ -34,7 +34,7 @@ char *reverse_string(const char *s)
 
 char *from_int_to_bin(int n)
 {
-  char *res = (char *)malloc(sizeof(char) * 32);
+  char *res = (char *)malloc(sizeof(char) * 33);
   int i = 0;
   char neg;
 
@@ -58,8 +58,9 @@ char *from_int_to_bin(int n)
   while (i < 32) 
     res[i++] = '0';
   
-  res[31] = neg;
-  res[32] = '\0';
+  res[32] = neg;
+  res[33] = '\0';
+ // printf("s bin %s \n", res);
   return ((char *)reverse_string(res));
 }
 
@@ -81,7 +82,7 @@ char *invert_bin(const char* s)
     i++;
   }
   inverted[i] = '\0';
-
+ // printf("s inverted %s \n", inverted);
   return ((char *)inverted);
 }
 
@@ -107,7 +108,7 @@ char *inverted_plus_one(char *inverted)
   }
 
   result[j] = '1';
- 
+
   while(i >= 0)
   {
     j++; 
@@ -115,6 +116,7 @@ char *inverted_plus_one(char *inverted)
     result[j] = inverted[i];
   }
   result[j] = '\0';
+ // printf("s inverted plus one %s \n", result);
   return ((char *)reverse_string(result));
 }
 
@@ -127,7 +129,7 @@ char *neg_hex(const char * s)
     int tmp;
     int stock;
     char ref[17] = "0123456789abcdef";
-
+   // printf("s inverted plus one %s \n", s);
     res = (char *)malloc( sizeof(char) * (ft_strlen(s) / 4) + 1);
     i = 0;
     j = 0;
@@ -159,7 +161,7 @@ char *neg_hex(const char * s)
 char *from_int_to_hex(int n)
 {
   char ref[17] = "0123456789abcdef";
-  char *result = (char *)malloc(sizeof(char) * 32);
+  char *result = (char *)malloc(sizeof(char) * 33);
   int i = 0;
 
   if (n == 0)
@@ -190,16 +192,16 @@ char *from_int_to_hex(int n)
 int main()
 {
 
-  int x = 100000000;
+  //unsigned int x = -99;
 
   //printf("x en binaire : %s\n", from_int_to_bin(x));
   //printf("x en binaire inversé : %s\n", invert_bin(from_int_to_bin(x)));
   //printf("x en binaire inversé + 1 : %s\n", inverted_plus_one(invert_bin(from_int_to_bin(x))));
   //printf("NEG HEX : %s\n", neg_hex(reverse_string(inverted_plus_one(invert_bin(from_int_to_bin(x))))));
 
-  printf("valeur de %%x en hexa: %x\n", x);
-  printf("valeur de %%x en hexa (ma fonction): %s\n", from_int_to_hex(x));
-  //printf("valeur de %%p en adresse : %p\n", x);
+  printf("valeur de %%x en hexa: %x\n", 1101);
+  printf("valeur de %%x en hexa (ma fonction): %s\n", from_int_to_hex(1101));
+  printf("valeur de %%p en adresse : %p\n", (void *)999999999);
  // printf("valeur de %%i en binaire : %i\n", 12);
 
   return (0);

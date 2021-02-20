@@ -23,6 +23,7 @@ int ft_printf(const char *s, ...)
     {
         if (s[i] == '%' && s[i])
         {
+            //ici on va chercher ce quil y a entree % et le type avec des finds
             res += ft_read_spec(s, i + 1, &argptr);
             i++;
         }
