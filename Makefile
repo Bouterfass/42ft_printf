@@ -10,37 +10,28 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = *.c
-
-CC = gcc
 
 NAME = libftprintf.a
 
-CFLAGS = -Wall -Wextra -Werror
+SRC= *.c ./libft/*.c 
 
-OBJS = $(SRCS:.c=.o)
+OBJS = *.o
 
-INC = -I libft/
-
-LIB = -L libft -lft
-
-$(NAME): $(OBJ) ${OBJPRINT}
-		make -C libft
-		$(CC) $(CFLAGS) -c $(SRCS) $(INC)
-		$(CC) $(CFLAGS) $(INC) $(OBJS) $(LIB) -o ft_printf
-		ar rc $(NAME) $(OBJS)
-		ranlib $(NAME)
+INCLUDES = ./
 
 all: $(NAME)
 
+$(NAME):
+	gcc -Wall -Wextra -Werror -I$(INCLUDES) -c $(SRC)
+	ar rc $(NAME) $(OBJS)
+	ranlib $(NAME)
+
 clean:
 	rm -rf $(OBJS)
-	make -C libft clean
 
 fclean:	clean
 	rm -rf $(NAME)
-	make -C libft fclean
-
+	
 re: fclean all
 
 .PHONY: re fclean clean name all
