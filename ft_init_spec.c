@@ -1,15 +1,15 @@
 #include "libftprintf.h"
 
 
-ft_specs ft_init_spec(void)
+void ft_init_spec(ft_specs *spe)
 {
-    ft_specs spe;
-
-    spe.flag = 0;
-    spe.width = 0;
-    spe.precision = 0;
-    spe.size = 0;
-    spe.type = 0;
-
-    return (spe);
+    
+    spe->flag = 0;
+    spe->width = 0;
+    spe->prec = -1;
+    spe->fillzero = 0;
+    spe->min = 0;
+    spe->type = -1;
+    spe->read = 0;
+    spe->str = 0;
 }

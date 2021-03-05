@@ -20,7 +20,7 @@ char *reverse_string(const char *s)
 }
 
 */
-
+/*
 char *from_int_to_lbin(int n)
 {
   char *res = (char *)malloc(sizeof(char) * 65);
@@ -34,7 +34,6 @@ char *from_int_to_lbin(int n)
   }
   else 
     neg = '0';
-
   while (n >  0) 
   {
     if (n % 2 == 0)
@@ -42,11 +41,9 @@ char *from_int_to_lbin(int n)
     else 
       res[i++] = '1';
     n /= 2;
-  
   }
   while (i < 64) 
     res[i++] = '0';
-  
   res[64] = neg;
   res[65] = '\0';
  // printf("s bin %s \n", res);
@@ -65,7 +62,8 @@ char *from_int_to_p(int n)
     result[0] = '0';
     result[1] = '\0';
     return ((char *)result);
-  } else if (n > 0)
+  } 
+  else if (n > 0)
   {
      while (n > 0)
     {
@@ -74,7 +72,9 @@ char *from_int_to_p(int n)
       i++;
     }
   result[i] = '\0';
-  } else {
+  } 
+  else
+  {
     ft_memcpy(result, 
               neg_hex(reverse_string(
                 inverted_plus_one(
@@ -83,4 +83,6 @@ char *from_int_to_p(int n)
   }
   return ((char *)ft_strjoin("0x", reverse_string(result)));
 }
+
+*/
 

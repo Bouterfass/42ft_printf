@@ -9,29 +9,27 @@
 
 int ft_printf(const char *s, ...)
 {    
-    int i;
-    int res; 
-
-    i = 0;
-    res = 0;
+    ft_specs *spe;
     va_list argptr;   
-    va_start(argptr, s);
+    int i;
 
+    va_start(argptr, s);
+    spe = (ft_specs *)ft_malloczero(sizeof(ft_specs));
+    i = 0;
     if (!s)
         return (-1);
     while (s[i])
     {
-        if (s[i] == '%' && s[i])
+        while (s[i] != '%' && s[i])
         {
-            //ici on va chercher ce quil y a entree % et le type avec des finds
-            res += ft_read_spec(s, i + 1, &argptr);
+            ft_putchar(s[i]);
             i++;
+            spe->read++;
         }
-        else {
-            res += ft_putchar(s[i]);
-        }
-        i++;
+        if (s[i] == '%')
+            i += ft_load_spe(spe, s, i + 1, &argptr);
     }
     va_end(argptr);
-    return (res);
+    free(spe);
+    return (spe->read);
 }

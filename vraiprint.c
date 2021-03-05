@@ -1,7 +1,10 @@
-/*#include <stdio.h>
+#include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "./libft/libft.h"*/
+#include "./libft/libft.h"
+#include "libftprintf.h"
+
+
 /*
 
     - % [indicateurs] [largeur] [.précision] [taille] type
@@ -12,197 +15,48 @@
                         type signé.
                 - '0' : 
   https://github.com/Himak1/ft_printf
-*/
+
+
+
+void	*ft_malloczero(size_t size)
+{
+	void	*dest;
+
+	if ((dest = malloc(size)))
+		ft_bzero(dest, size);
+	return (dest);
+} 
+
+
+int main (){
+
+  ft_specs *spe; 
+  
+  spe = (ft_specs *)ft_malloczero(sizeof(ft_specs));
+  
+  ft_init_spec(spe);
+  ft_get_str(spe, "je suids un %000%c", 12);
+
+  
+
+  printf("str %s\n", spe->str);
+  printf("flag %d\n", spe->flag);
+  printf("width %d\n", spe->width);
+  printf("prec %d\n", spe->prec);
+  printf("size %d\n", spe->size);
+  printf("type %d\n", spe->type);
+  
+
+
+//  printf("jusquou le i -> %d\n", ft_speclen("Saslut%les amis", 5));
+
+  return (0);
+}*/
+
 /*
-char *reverse_string(const char *s)
+int main ()
 {
-  char *reversed = (char *)malloc(sizeof(char) * ft_strlen(s));
-  int i = 0;
-  int length = ft_strlen(s) - 1;
-  while (s[i])
-  {
-    reversed[length] = s[i];
-    length--;
-    i++;
-  }
   
-  reversed[i] = '\0';
-  return ((char *)reversed);
-}
-
-
-
-char *from_int_to_bin(int n)
-{
-  char *res = (char *)malloc(sizeof(char) * 33);
-  int i = 0;
-  char neg;
-
-  if (n < 0)
-  {
-    n = -n;
-    neg = '1';
-  }
-  else 
-    neg = '0';
-
-  while (n >  0) 
-  {
-    if (n % 2 == 0)
-      res[i++] = '0'; 
-    else 
-      res[i++] = '1';
-    n /= 2;
-  
-  }
-  while (i < 32) 
-    res[i++] = '0';
-  
-  res[32] = neg;
-  res[33] = '\0';
- // printf("s bin %s \n", res);
-  return ((char *)reverse_string(res));
-}
-
-
-char *invert_bin(const char* s)
-{
-  char *inverted; 
-  int i;
-
-  inverted = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
-  i = 0;
-
-  while (s[i])
-  {
-    if (s[i] == '1')
-      inverted[i] = '0';
-    else
-      inverted[i] = '1';
-    i++;
-  }
-  inverted[i] = '\0';
- // printf("s inverted %s \n", inverted);
-  return ((char *)inverted);
-}
-
-char *inverted_plus_one(char *inverted)
-{
-  char *result; 
-  int i;
-  int j;
-
-  result = (char *)malloc(sizeof(char) * ft_strlen(inverted));
-  i = ft_strlen(inverted) - 1;
-  j = 0;
-
-  if (inverted[i] == '1')
-  {
-
-    while (inverted[i] == '1')
-    {
-      result[j] = '0';
-      j++;
-      i--;
-    }
-  }
-
-  result[j] = '1';
-
-  while(i >= 0)
-  {
-    j++; 
-    i--;
-    result[j] = inverted[i];
-  }
-  result[j] = '\0';
- // printf("s inverted plus one %s \n", result);
-  return ((char *)reverse_string(result));
-}
-
-
-char *neg_hex(const char * s)
-{
-    char *res;
-    size_t i;
-    int j;
-    int tmp;
-    int stock;
-    char ref[17] = "0123456789abcdef";
-   // printf("s inverted plus one %s \n", s);
-    res = (char *)malloc( sizeof(char) * (ft_strlen(s) / 4) + 1);
-    i = 0;
-    j = 0;
-    tmp = 1;
-    stock = 0;
-    
-    while (i <= ft_strlen(s) - 2)
-    {
-      
-      if (s[i] == '1')
-        stock += tmp;
-      tmp *= 2;
-      if (((i + 1) % 4) == 0)
-      {
-        //printf("stock %d\n", stock);
-        res[j] = ref[stock];    
-        tmp = 1;
-        stock = 0;
-        j++;
-      }
-      i++;
-    }
-  
-  res[j] = '\0';
-  return ((char *)res);
-}
-
-
-char *from_int_to_hex(int n)
-{
-  char ref[17] = "0123456789abcdef";
-  char *result = (char *)malloc(sizeof(char) * 33);
-  int i = 0;
-
-  if (n == 0)
-  {
-    result[0] = '0';
-    result[1] = '\0';
-    return ((char *)result);
-  } else if (n > 0)
-  {
-     while (n > 0)
-    {
-      result[i] = ref[n % 16];
-      n = n / 16;
-      i++;
-    }
-  result[i] = '\0';
-  } else {
-    ft_memcpy(result, 
-              neg_hex(reverse_string(
-                inverted_plus_one(
-                  invert_bin(
-                    from_int_to_bin(n))))), 32);
-  }
-  return ((char *)reverse_string(result));
-}
-
-
-int main()
-{
-
-  //unsigned int x = -99;
-
-  //printf("x en binaire : %s\n", from_int_to_bin(x));
-  //printf("x en binaire inversé : %s\n", invert_bin(from_int_to_bin(x)));
-  //printf("x en binaire inversé + 1 : %s\n", inverted_plus_one(invert_bin(from_int_to_bin(x))));
-  //printf("NEG HEX : %s\n", neg_hex(reverse_string(inverted_plus_one(invert_bin(from_int_to_bin(x))))));
-
-  printf("valeur de %%x en hexa: %x\n", 1101);
-  printf("valeur de %%x en hexa (ma fonction): %s\n", from_int_to_hex(1101));
-  printf("valeur de %%p en adresse : %p\n", (void *)999999999);
- // printf("valeur de %%i en binaire : %i\n", 12);
-
+  printf("%p\n", (void *)-12345);
   return (0);
 }*/

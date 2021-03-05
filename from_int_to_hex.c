@@ -125,7 +125,7 @@ char *inverted_plus_one(char *inverted)
 char *neg_hex(const char * s)
 {
     char *res;
-    size_t i;
+    int i;
     int j;
     int tmp;
     int stock;
@@ -170,7 +170,8 @@ char *from_int_to_hex(int n)
     result[0] = '0';
     result[1] = '\0';
     return ((char *)result);
-  } else if (n > 0)
+  } 
+  else if (n > 0)
   {
      while (n > 0)
     {
