@@ -18,8 +18,8 @@ void ft_get_type(ft_specs *spe, va_list *argptr)
         print_ptr(spe, argptr);
     else if (*spe->str == 'u')
         print_unsigned(spe, argptr);
-    /*else if (*spe->str == '%')
-        print_percent(spe, &argptr);*/
+    else if (*spe->str == '%')
+        print_percent(spe);
     else
         ft_putstr("error");
     

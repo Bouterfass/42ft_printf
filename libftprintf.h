@@ -48,6 +48,7 @@ void		print_ptr(ft_specs *spe, va_list *argptr);
 void        print_string(ft_specs *spe, va_list *argptr);
 void        print_unsigned(ft_specs *spe, va_list *argptr);
 void        print_int(ft_specs *spe, va_list *argptr);
+void		print_percent(ft_specs *spe);
 void	    *ft_malloczero(size_t size);
 void        print_minus(ft_specs *spe, char *str);
 void	    print_not_minus(ft_specs *spe, char *str);
