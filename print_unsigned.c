@@ -1,7 +1,5 @@
 #include "libftprintf.h"
 
-
-
 void print_unsigned(ft_specs *spe, va_list *argptr)
 {
     char *str; 
@@ -11,7 +9,7 @@ void print_unsigned(ft_specs *spe, va_list *argptr)
     length = ft_strlen(str);
     if (spe->prec > length)
         spe->fillzero = spe->prec - length;
-    remap_flags(length, str, spe);
+    set_spec(length, str, spe);
     if (spe->fmin != 1)
         print_not_minus(spe, str);
     else

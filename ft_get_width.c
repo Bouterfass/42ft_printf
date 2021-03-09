@@ -11,6 +11,7 @@ void ft_get_width(ft_specs *spe, va_list *argptr)
         {
             spe->width *= 10;
             spe->width += *spe->str - '0';
+           
             spe->str++; 
         }
     }

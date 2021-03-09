@@ -1,35 +1,39 @@
 #include "libftprintf.h"
 
-/*
-*
-* va_start (nb, arg_ptr) nb prend le nombre de flags trouves dans s
-*
-*/
 
+void	*ft_malloczero(size_t size)
+{
+	void	*dest;
+
+	if ((dest = malloc(size)))
+		ft_bzero(dest, size);
+	return (dest);
+} 
 
 int ft_printf(const char *s, ...)
 {    
-    ft_specs *spe;
-    va_list argptr;   
-    int i;
+    ft_specs    *spe;
+    va_list     argptr;   
+    int         printedchar;
 
-    va_start(argptr, s);
-    spe = (ft_specs *)ft_malloczero(sizeof(ft_specs));
-    i = 0;
     if (!s)
         return (-1);
-    while (s[i])
+    spe = (ft_specs *)ft_malloczero(sizeof(ft_specs));
+    va_start(argptr, s);
+    spe->str = s;
+    while (*spe->str)
     {
-        while (s[i] != '%' && s[i])
+        while (*spe->str != '%' && *spe->str)
         {
-            ft_putchar(s[i]);
-            i++;
-            spe->read++;
+            ft_putchar(*spe->str);
+            spe->str++;  
+            spe->printed++;
         }
-        if (s[i] == '%')
-            i += ft_load_spe(spe, s, i + 1, &argptr);
+        if (*spe->str == '%')
+            ft_load_spe(spe, &argptr);
     }
+    printedchar = spe->printed;
     va_end(argptr);
     free(spe);
-    return (spe->read);
+    return (printedchar);
 }
